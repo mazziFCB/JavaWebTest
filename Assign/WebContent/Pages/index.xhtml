@@ -1,0 +1,71 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Login</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<h:outputStylesheet library="assign" name="main.css" />
+<style>
+.center {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+padding: 10px;
+border: 2px solid gray;
+  border-radius: 25px;
+  box-shadow: 5px 5px 3px grey;
+}
+
+div{
+margin: 20px;
+}
+</style>
+</h:head>
+
+
+<h:body>
+
+
+	<f:view transient="true">
+
+
+
+		<p:focus context="loginForm" />
+		<h:form id="loginForm">
+			<p:growl id="growl" showDetail="true" life="10000" sticky="false" />
+			<div class="center">
+			<div style="margin: 0 auto;">
+			<h3 style="text-align: center;">Java assignment - Accounts Table</h3>
+			</div>
+			<div>
+			<p:outputLabel value="USERNAME: " />
+				<p:inputText  value="#{loginManager.txtUsername}" maxlength="20" autocomplete="off" />
+			</div>
+			<div>
+			<p:outputLabel value="PASSWORD: " />
+				<p:password value="#{loginManager.txtPassword}" maxlength="20" autocomplete="off" feedback="false" />
+			</div>
+
+			<p:commandButton style="margin-left: 40%;" update="growl" value="Login" actionListener="#{loginManager.login}" />
+			
+			</div>
+			
+		</h:form>
+	</f:view>
+</h:body>
+
+
+
+
+
+</html>
+

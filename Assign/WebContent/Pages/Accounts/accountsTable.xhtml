@@ -1,0 +1,61 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Accounts Table</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+</h:head>
+
+
+<h:body>
+
+
+	<f:view transient="true">
+
+
+		<h:form id="accounts">
+			<p:growl id="growl" showDetail="true" life="10000" sticky="false" />
+			<div style="float: right;">
+				<p:commandLink value="Logout" action="#{sessionBean.logout}" />
+			</div>
+			<div style="margin-top: 20px;margin-bottom: 20px">
+				<p:outputLabel value="Accounts" />
+			</div>
+			<div style="margin-top: 10px;margin-bottom: 10px">
+				<p:dataTable value="#{accountsManager.accountList}" var="account"
+				rowKey="#{account.accountId}" selectionMode="single" reflow="true"
+				selection="#{accountsManager.selectedAccount}" >
+					<p:column headerText="ID" width="40">
+						<p:outputLabel value="#{account.accountId}" />
+					</p:column>
+					<p:column headerText="Account Type" width="80">
+						<p:outputLabel value="#{account.accountType}" />
+					</p:column>
+					<p:column headerText="Account Number" width="250">
+						<p:outputLabel value="#{account.accountNumber}" />
+					</p:column>
+				</p:dataTable>
+			</div>
+			<div style="margin-top: 10px;margin-bottom: 10px">
+			<p:commandButton update="growl" value="View Details" actionListener="#{accountsManager.viewAccountDetails}" />
+			</div>
+
+		</h:form>
+	</f:view>
+</h:body>
+
+
+
+
+
+</html>
+

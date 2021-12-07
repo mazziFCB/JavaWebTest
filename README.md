@@ -25,7 +25,9 @@ before debloy you must add the database file location from
 tomcat/conf/catalina.properties
 
 DATABASE_URL=jdbc:ucanaccess://YOUR_DATABASE_FILE_LOCATION e.g E:/accountsdb.accdb
+END_POINT=http://ASSIGN_API_IP:PORT/AssignAPI/rest/ 
 
 or you can set it hardcoded in java
 
 AssignAPI-> src-> com->assign->utils-> Constant class -> DATABASE_URL variable
+Assign -> src-> com->assignment -> utils-> Constant class ->END_POINT variable
